@@ -67,6 +67,6 @@ void displayListo(Listo *ls){
         cout<<tmp->dat<<" ";
         tmp=tmp->alnext;
     }
-    cout<<endl;
+   cout<<endl;
 
 }
