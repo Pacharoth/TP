@@ -11,25 +11,26 @@ struct Listo{
 };
 //create empty list
 Listo *createListo();
+void endList(Listo *ls,char bruh);
 //create function insert begin
 void insert_Begin(Listo *ls,char anotherData);
 //display all list
 void displayListo(Listo *ls);
 int main(){
-    char i='Z';
+    char i='A';
     Listo *ls;
     ls= createListo();
     while (1)
     {
         if (i>='A'&&i<='Z')
         {
-           insert_Begin(ls,i);
+           endList(ls,i);
             
         }else
         {
             break;
         }
-        i--;
+        i++;
         
     }displayListo(ls);
     
@@ -56,6 +57,21 @@ void insert_Begin(Listo *ls,char anotherData){
     {
         ls->tail=e;
     }
+    ls->n=ls->n+1;
+}
+void endList(Listo *ls,char bruh){
+    Eternal *e;
+    e=new Eternal();
+    if (ls->n==0)
+    {
+        ls->head=e;
+        ls->tail=e;
+    }
+    e->dat = bruh;
+    e->alnext=NULL;
+    ls->tail->alnext=e;
+    ls->tail=e;
+    
     ls->n=ls->n+1;
 }
 //display all list

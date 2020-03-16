@@ -31,11 +31,16 @@ void endOfList(List *ls,int dataNew);
 int main(){
     List *l;
     l =createList();
+    cout<<"\t\tFirst output:\n";
     changeToBegin(l,7);
     changeToBegin(l,1);
+    cout<<"\t\t";
     displayList(l);
+    cout<<"\t\tSecond output:\n";
+
     endOfList(l,0);
     endOfList(l,4);
+    cout<<"\t\t";
     displayList(l);
 
 }   
@@ -55,7 +60,8 @@ void changeToBegin(List *ls,int newData){
     {//if ls have n==0 so tail of list equal to e which is next elelement
        ls->tail =e;
     }
-    ls->n=ls->n+1;//erach that algorithm repeat and store as singled link step by step
+    ls->n=ls->n+1;
+    
 
 }
 //Display list
@@ -76,12 +82,13 @@ void displayList(List *l){
 //add to end ofo  list
 void endOfList(List *ls,int dataNew){
     Element *e;
+     e=new Element();
     if (ls->n==0)
     {
-        changeToBegin(ls,dataNew);
+        ls->head=e;
+        ls->tail=e;
     }else
     {
-        e=new Element(); //create element
         e->data = dataNew;//equal data
         e->next = NULL;//next of element set null
 

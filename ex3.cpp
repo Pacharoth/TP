@@ -104,20 +104,22 @@ void displayList(List *ls){
 }
 void endList(List *ls,int data1){
     element *e;
+    e = new element();
     if (ls->n==0)
     {
-        beginBattle(ls,data1);
+      ls->head=e;
+      ls->tail=e;
 
-    }else
-    {
-        e = new element();
+    }
+    
+        
         e->data = data1;
         e->next=NULL;
 
         ls->tail->next=e;
         ls->tail=e;
-        ls->n=ls->n+1;
-    }
+       ls->n=ls->n+1;
+    
 }
 bool checkInList(List *ls,int num){
     element *tmp;
@@ -131,7 +133,7 @@ bool checkInList(List *ls,int num){
               break;
         }
         tmp=tmp->next;
-        ls->n++;    
+        // ls->n++;    
     }
     return false;
 }
